@@ -18,7 +18,7 @@ class Customer {
     return this._name;
   }
   
-  changeName(name: string) {
+  changeName(name: string): void {
     this._name = name;
   }
 
@@ -30,11 +30,11 @@ class Customer {
     this._address = address;
   }
 
-  activate() {
+  activate(): void {
     this._active = true;
   }
 
-  deactivate() {
+  deactivate(): void {
     this._active = false;
   }
 }
