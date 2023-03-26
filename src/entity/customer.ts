@@ -1,12 +1,15 @@
-class Customer {
+import Address from "../value-object/address";
+
+export default class Customer {
   private _id: string;
   private _name: string;
-  private _address!: string;
+  private _address!: Address;
   private _active = false;
 
-  constructor (id: string, name: string) {
+  constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
+
     this.validate();
   }
 
@@ -18,17 +21,21 @@ class Customer {
     return this._name;
   }
 
-  get address(): string {
+  get address(): Address {
     return this._address;
   }
 
-  changeAddress(address: string): void {
+  changeAddress(address: Address): void {
     this._address = address;
   }
 
   changeName(name: string): void {
     this._name = name;
     this.validate();
+  }
+
+  isActive(): boolean {
+    return this._active;
   }
 
   activate(): void {
@@ -43,7 +50,7 @@ class Customer {
     this._active = false;
   }
 
-  validate(): void {
+  private validate(): void {
     if (this._id.length === 0) {
       throw new Error("Id is required");
     }
