@@ -41,6 +41,12 @@ export default class OrderItem {
     return this._total;
   }
 
+  updateQuantity(quantity: number): void {
+    this._quantity = quantity;
+    this._total = this.calculateTotal();
+    this.validate();
+  }
+
   private calculateTotal(): number {
     return this._price * this._quantity;
   }

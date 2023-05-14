@@ -31,6 +31,12 @@ export default class Order {
     return this._total;
   }
 
+  updateOrderItem(itemId: string, quantity: number): void {
+    const item = this._items.find(item => item.id === itemId);
+    item?.updateQuantity(quantity);
+    this._total = this.calculateTotal();
+  }
+
   private calculateTotal(): number {
     return this._items.reduce((total, item) => total + item.total, 0);
   }
