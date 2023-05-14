@@ -2,7 +2,6 @@ import Order from "../../../../domain/order/entity/order";
 import OrderItem from "../../../../domain/order/entity/orderItem";
 import OrderRepositoryInterface from "../../../../domain/order/repository/order.repository.interface";
 import OrderModel from "./order.model";
-import OrderItemModel from "./orderItem.model";
 
 export default class OrderRepository implements OrderRepositoryInterface {
   async create(order: Order): Promise<void> {
